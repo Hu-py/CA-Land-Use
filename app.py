@@ -143,7 +143,7 @@ st.sidebar.caption("Accessibility weight: higher → cell prefers locations near
 wI = st.sidebar.slider("wI Inertia", 0.0, 3.0, 0.2)
 st.sidebar.caption("Inertia weight: higher → cell more likely to retain its current land-use type.")
 
-temp = st.sidebar.slider("Temperature", 0.1, 2.0, 0.6)
+temp = st.sidebar.slider("Randomness", 0.1, 2.0, 0.6)
 st.sidebar.caption("Randomness: higher → more stochastic transitions; lower → follows score maximization.")
 
 speed = st.sidebar.slider("🎞️ Animation speed (s per frame)",0.01,1.0,0.1)
