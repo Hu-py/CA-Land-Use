@@ -124,11 +124,28 @@ steps = st.sidebar.slider("Steps",1,100,20)
 seed = st.sidebar.number_input("Seed",0,9999,1)
 
 # Weights sliders
-wS = st.sidebar.slider("wS Suitability",0.0,3.0,0.5)
-wN = st.sidebar.slider("wN Neighborhood",0.0,3.0,2.0)
-wA = st.sidebar.slider("wA Access",0.0,3.0,0.2)
-wI = st.sidebar.slider("wI Inertia",0.0,3.0,0.2)
-temp = st.sidebar.slider("Temperature",0.1,2.0,0.6)
+#wS = st.sidebar.slider("wS Suitability",0.0,3.0,0.5)
+#wN = st.sidebar.slider("wN Neighborhood",0.0,3.0,2.0)
+#wA = st.sidebar.slider("wA Access",0.0,3.0,0.2)
+#wI = st.sidebar.slider("wI Inertia",0.0,3.0,0.2)
+#temp = st.sidebar.slider("Temperature",0.1,2.0,0.6)
+
+# Weights sliders with captions
+wS = st.sidebar.slider("wS Suitability", 0.0, 3.0, 0.5)
+st.sidebar.caption("Suitability weight: higher → cell prefers its most suitable land-use type.")
+
+wN = st.sidebar.slider("wN Neighborhood", 0.0, 3.0, 2.0)
+st.sidebar.caption("Neighborhood weight: higher → cell more likely to match neighbors (cluster effect).")
+
+wA = st.sidebar.slider("wA Access", 0.0, 3.0, 0.2)
+st.sidebar.caption("Accessibility weight: higher → cell prefers locations near roads.")
+
+wI = st.sidebar.slider("wI Inertia", 0.0, 3.0, 0.2)
+st.sidebar.caption("Inertia weight: higher → cell more likely to retain its current land-use type.")
+
+temp = st.sidebar.slider("Temperature", 0.1, 2.0, 0.6)
+st.sidebar.caption("Randomness: higher → more stochastic transitions; lower → follows score maximization.")
+
 speed = st.sidebar.slider("🎞️ Animation speed (s per frame)",0.01,1.0,0.1)
 
 export_gif = st.sidebar.checkbox("Export GIF", value=False)
