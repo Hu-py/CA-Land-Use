@@ -141,18 +141,20 @@ if st.button("Run Simulation"):
                     frames=[(render_grid(grid)*255).astype(np.uint8)])
     for t in range(steps):
         state = step_ca(state,weights={'wS':wS,'wN':wN,'wA':wA,'wI':wI,'wD':0.0}, radius=2, temp=temp)
-
+        
+    # Animation (all frames)
+    st.subheader("Dynamic Animation")
+    gif_path = "temp_ca.gif"
+    imageio.mimsave(gif_path,state.frames,duration=speed)
+    st.image(gif_path, use_column_width=True)
+    
     # Initial vs final
     st.subheader("Initial / Final States")
     col1,col2=st.columns(2)
     with col1: st.image(state.frames[0], caption="Initial", use_column_width=True)
     with col2: st.image(state.frames[-1], caption="Final", use_column_width=True)
 
-    # Animation (all frames)
-    st.subheader("Dynamic Animation")
-    gif_path = "temp_ca.gif"
-    imageio.mimsave(gif_path,state.frames,duration=speed)
-    st.image(gif_path, use_column_width=True)
+
 
     # Plot class shares over time
     st.subheader("Class Shares Over Time")
